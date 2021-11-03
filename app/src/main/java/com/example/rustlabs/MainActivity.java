@@ -2,7 +2,9 @@ package com.example.rustlabs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.rustlabs.viewmodel.MainActivityViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.rustlabs.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Collections;
 
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity
     private ActivityMainBinding binding;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mFirestore;
+
+    private MainActivityViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,6 +39,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
+
+        mViewModel = new MainActivityViewModel();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -77,6 +86,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private boolean shouldStartSignIn()
+    {
+        return (!mViewModel.getIsSigningIn() && FirebaseUtil.getAuth().getCurrentUser() == null);
+    }
+
     private void startSignIn()
     {
         // Sign in with FirebaseUI
@@ -89,5 +103,10 @@ public class MainActivity extends AppCompatActivity
 
         startActivityForResult(intent, RC_SIGN_IN);
         mViewModel.setIsSigningIn(true);
+    }
+
+    private void showTodoToast()
+    {
+        Toast.makeText(this, "TODO: Implement", Toast.LENGTH_SHORT).show();
     }
 }
