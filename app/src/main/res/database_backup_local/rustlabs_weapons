@@ -1,0 +1,122 @@
+Rustlabs Weapons
+----------
+
+{
+	name: Bone Club
+	damage: 12
+	ammo_type: NA
+	picture:
+	top_location: Blueprint Only
+}
+
+{
+	name: Compound Bow
+	damage: 100
+	ammo_type: Arrow
+	picture:
+	top_location: Blueprint Only
+}
+
+{
+	name: Crossbow
+	damage: 60
+	ammo_type: Arrow
+	picture:
+	top_location: Tool Box
+}
+
+{
+	name: M249
+	damage: 65
+	ammo_type: 5.56 Rifle Ammo
+	picture:
+	top_location: APC Crate
+}
+
+{
+	name: Eoka
+	damage: 180
+	ammo_type: Shotgun Shell
+	picture:
+	top_location: Blueprint Only
+}
+
+{
+	name: Python
+	damage: 55
+	ammo_type: Pistol Bullet
+	picture:
+	top_location: Locked Crate
+}
+
+{
+	name: Assault Rifle
+	damage: 50
+	ammo_type: 5.56 Rifle Ammo
+	picture:
+	top_location: Locked Crate
+}
+
+{
+	name: Bolt Action Rifle
+	damage: 80
+	ammo_type: 5.56 Rifle Ammo
+	picture:
+	top_location: Locked Crate
+}
+
+{
+	name: L96 Rifle
+	damage: 80
+	ammo_type: 5.56 Rifle Ammo
+	picture:
+	top_location: APC Crate
+}
+
+{
+	name: Semi-Automatic Rifle
+	damage: 40
+	ammo_type: 5.56 Rifle Ammo
+	picture:
+	top_location: Supply Drop
+}
+
+{
+	name: Double Barrel Shotgun
+	damage: 180
+	ammo_type: Shotgun Shell
+	picture:
+	top_location: Elite Crate
+}
+
+{
+	name: Waterpipe Shotgun
+	damage: 180
+	ammo_type: Shotgun Shell
+	picture:
+	top_location: Elite Crate
+}
+
+{
+	name: Custom SMG
+	damage: 30
+	ammo_type: Pistol Ammo
+	picture:
+	top_location: Supply Drop
+}
+
+{
+	name: Thompson
+	damage: 37
+	ammo_type: Pistol Bullet
+	picture:
+	top_location: Supply Drop
+}
+
+{
+	name: M92 Pistol
+	damage: 45
+	ammo_type: Pistol Ammo
+	picture:
+	top_location: Locked Crate
+}

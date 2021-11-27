@@ -1,0 +1,142 @@
+Rustlabs Armor
+----------
+
+{
+	name: Bone Armor
+	protection_projectile: 25
+	protection_melee: 40
+	protection_radiation: 4
+	protection_cold: 0
+	craft_cost: 15 Cloth, 70 Bone Fragments
+	top_location: Blueprint Only
+}
+
+{
+	name: Bucket Helmet
+	protection_projectile: 20
+	protection_melee: 50
+	protection_radiation: 4
+	protection_cold: 6
+	craft_cost: 35 Metal Fragments
+	top_location: Supply Drop
+}
+
+{
+	name: Leather Gloves
+	protection_projectile: 5
+	protection_melee: 5
+	protection_radiation: 4
+	protection_cold: 5
+	craft_cost: 20 Leather, 1 Sewing Kit
+	top_location: Primitive Crate
+}
+
+{
+	name: Burlap Shirt
+	protection_projectile: 10
+	protection_melee: 10
+	protection_radiation: 2
+	protection_cold: 7
+	craft_cost: 20 Cloth
+	top_location: Blueprint Only
+}
+
+{
+	name: Burlap Trousers
+	protection_projectile: 10
+	protection_melee: 10
+	protection_radiation: 3
+	protection_cold: 7
+	craft_cost: 20 Cloth
+	top_location: Blueprint Only
+}
+
+{
+	name: Coffee Can Helmet
+	protection_projectile: 35
+	protection_melee: 50
+	protection_radiation: 5
+	protection_cold: 0
+	craft_cost: 15 Cloth, 60 Metal Fragments, 1 Sewing Kit
+	top_location: Supply Drop
+}
+
+{
+	name: Bone Helmet
+	protection_projectile: 25
+	protection_melee: 40
+	protection_radiation: 4
+	protection_cold: 0
+	craft_cost: 15 Cloth, 30 Bone Fragments
+	top_location: Blueprint Only
+}
+
+{
+	name: Hazmat Suit
+	protection_projectile: 30
+	protection_melee: 30
+	protection_radiation: 50
+	protection_cold: 8
+	craft_cost: 5 Tarp, 2 Sewing Kits, 8 High Quality Metal
+	top_location: Crate
+}
+
+{
+	name: Hoodie
+	protection_projectile: 20
+	protection_melee: 15
+	protection_radiation: 5
+	protection_cold: 8
+	craft_cost: 40 Cloth, 1 Sewing Kit
+	top_location: Supply Drop
+}
+
+{
+	name: Jacket
+	protection_projectile: 15
+	protection_melee: 20
+	protection_radiation: 5
+	protection_cold: 10
+	craft_cost: 50 Cloth, 2 Sewing Kits
+	top_location: Locked Crate
+}
+
+{
+	name: Metal Facemask
+	protection_projectile: 50
+	protection_melee: 70
+	protection_radiation: 0
+	protection_cold: -4
+	craft_cost: 50 Leather, 15 High Quality Metal, 6 Sewing Kits
+	top_location: Locked Crate
+}
+
+{
+	name: Riot Helmet
+	protection_projectile: 25
+	protection_melee: 80
+	protection_radiation: 5
+	protection_cold: 6
+	craft_cost: 10 Cloth, 50 Metal Fragments
+	top_location: Supply Drop
+}
+
+{
+	name: Boots
+	protection_projectile: 10
+	protection_melee: 10
+	protection_radiation: 3
+	protection_cold: 8
+	craft_cost: 20 Leather, 15 Metal Fragments, 1 Sewing Kit
+	top_location: Locked Crate
+}
+
+{
+	name: Tactical Gloves
+	protection_projectile: 10
+	protection_melee: 5
+	protection_radiation: 5
+	protection_cold: 7
+	craft_cost: N/A
+	top_location: Output Outfitters at Outpost
+}

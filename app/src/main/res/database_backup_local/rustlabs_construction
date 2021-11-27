@@ -1,0 +1,173 @@
+Rustlabs Construction
+----------
+
+{
+	name: Armored Door
+	health: 800
+	raid_c4: 2
+	raid_rocket: 4
+	raid_satchel: 12
+	raid_explosive_ammo: 200
+}
+
+{
+	name: Armored Double Door
+	health: 800
+	raid_c4: 2
+	raid_rocket: 4
+	raid_satchel: 12
+	raid_explosive_ammo: 200
+}
+
+{
+	name: Sheet Metal Door
+	health: 250
+	raid_c4: 1
+	raid_rocket: 2
+	raid_satchel: 4
+	raid_explosive_ammo: 63
+}
+
+{
+	name: Sheet Metal Double Door
+	health: 250
+	raid_c4: 1
+	raid_rocket: 2
+	raid_satchel: 4
+	raid_explosive_ammo: 10
+}
+
+{
+	name: Wooden Door
+	health: 200
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 1
+	raid_explosive_ammo: 19
+}
+
+{
+	name: Wooden Double Door
+	health: 200
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 1
+	raid_explosive_ammo: 19
+}
+
+{
+	name: Tool Cupboard
+	health: 100
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 1
+	raid_explosive_ammo: 10
+}
+
+{
+	name: Garage Door
+	health: 600
+	raid_c4: 2
+	raid_rocket: 3
+	raid_satchel: 19
+	raid_explosive_ammo: 150
+}
+
+{
+	name: Ladder Hatch
+	health: 250
+	raid_c4: 1
+	raid_rocket: 2
+	raid_satchel: 4
+	raid_explosive_ammo: 63
+}
+
+{
+	name: Twig Floor
+	health: 10
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 1
+	raid_explosive_ammo: 2
+}
+
+{
+	name: Wooden Floor
+	health: 250
+	raid_c4: 1
+	raid_rocket: 2
+	raid_satchel: 3
+	raid_explosive_ammo: 49
+}
+
+{
+	name: Stone Floor
+	health: 500
+	raid_c4: 2
+	raid_rocket: 4
+	raid_satchel: 10
+	raid_explosive_ammo: 200
+}
+
+{
+	name: Metal Floor
+	health: 1000
+	raid_c4: 4
+	raid_rocket: 8
+	raid_satchel: 23
+	raid_explosive_ammo: 400
+}
+
+{
+	name: Armored Floor
+	health: 2000
+	raid_c4: 8
+	raid_rocket: 15
+	raid_satchel: 43
+	raid_explosive_ammo: 799
+}
+
+{
+	name: Twig Wall
+	health: 10
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 1
+	raid_explosive_ammo: 2
+}
+
+{
+	name: Wooden Wall
+	health: 250
+	raid_c4: 1
+	raid_rocket: 1
+	raid_satchel: 46
+	raid_explosive_ammo: 49
+}
+
+{
+	name: Stone Wall
+	health: 500
+	raid_c4: 2
+	raid_rocket: 4
+	raid_satchel: 10
+	raid_explosive_ammo: 185
+}
+
+{
+	name: Metal Wall
+	health: 1000
+	raid_c4: 4
+	raid_rocket: 8
+	raid_satchel: 23
+	raid_explosive_ammo: 400
+}
+
+{
+	name: Armored Wall
+	health: 2000
+	raid_c4: 8
+	raid_rocket: 15
+	raid_satchel: 46
+	raid_explosive_ammo: 799
+}
