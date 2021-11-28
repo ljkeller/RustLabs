@@ -66,43 +66,47 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
-        // Apply filters
-        onFilter(mViewModel.getFilters());
-
-        // Start listening for Firestore updates
-        if (mAdapter != null)
-        {
-            mAdapter.startListening();
-        }
+//        // Apply filters
+//        onFilter(mViewModel.getFilters());
+//
+//        // Start listening for Firestore updates
+//        if (mAdapter != null)
+//        {
+//            mAdapter.startListening();
+//        }
     }
 
     @Override
     public void onStop()
     {
         super.onStop();
-        if (mAdapter != null)
-        {
-            mAdapter.stopListening();
-        }
+//        if (mAdapter != null)
+//        {
+//            mAdapter.stopListening();
+//        }
     }
 
     private boolean shouldStartSignIn()
     {
-        return (!mViewModel.getIsSigningIn() && FirebaseUtil.getAuth().getCurrentUser() == null);
+        return (!mViewModel.getIsSigningIn() && mAuth.getCurrentUser() == null);
     }
 
     private void startSignIn()
     {
-        // Sign in with FirebaseUI
-        Intent intent = FirebaseUtil.getAuthUI()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(Collections.singletonList(
-                        new AuthUI.IdpConfig.EmailBuilder().build()))
-                .setIsSmartLockEnabled(false)
-                .build();
-
-        startActivityForResult(intent, RC_SIGN_IN);
+//        // Sign in with FirebaseUI
+//        Intent intent = FirebaseUtil.getAuthUI()
+//                .createSignInIntentBuilder()
+//                .setAvailableProviders(Collections.singletonList(
+//                        new AuthUI.IdpConfig.EmailBuilder().build()))
+//                .setIsSmartLockEnabled(false)
+//                .build();
+//
+//        startActivityForResult(intent, RC_SIGN_IN);
         mViewModel.setIsSigningIn(true);
+    }
+
+    private void onFilter() {
+        //TODO: Implement
     }
 
     private void showTodoToast()

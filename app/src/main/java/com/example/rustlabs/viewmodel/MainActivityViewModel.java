@@ -12,7 +12,7 @@ public class MainActivityViewModel extends ViewModel
 
     public MainActivityViewModel() {
         mIsSigningIn = false;
-        mFilters = Filters.getDefault();
+//        mFilters = Filters.getDefault();
     }
 
     public boolean getIsSigningIn() {
