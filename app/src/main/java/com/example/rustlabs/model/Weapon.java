@@ -17,6 +17,10 @@ public class Weapon
     private String photo;
     private String topLocation;
 
+    private int damage;
+    // For if we want to display number of tips to user. No internal use planned
+    private int numTips;
+
     public String getName()
     {
         return name;
@@ -76,10 +80,6 @@ public class Weapon
     {
         this.numTips = numTips;
     }
-
-    private int damage;
-    // For if we want to display number of tips to user. No internal use planned
-    private int numTips;
 
     public Weapon() {}
 

@@ -12,6 +12,7 @@ public class Armor
     private String name;
     private String topLocation;
     private String craftCost;
+    private String photo;
 
     private int protectionProjectile;
     private int protectionMelee;
@@ -28,6 +29,16 @@ public class Armor
         this.protectionMelee = protectionMelee;
         this.protectionRadiation = protectionRadiation;
         this.protectionCold = protectionCold;
+    }
+
+    public String getPhoto()
+    {
+        return photo;
+    }
+
+    public void setPhoto(String photo)
+    {
+        this.photo = photo;
     }
 
     public String getName()
