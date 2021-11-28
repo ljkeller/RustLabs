@@ -18,10 +18,11 @@ public class Armor
     private int protectionMelee;
     private int protectionRadiation;
     private int protectionCold;
+    private int numTips;
 
     public Armor () {}
 
-    public Armor(String name, String topLocation, int protectionProjectile, int protectionMelee, int protectionRadiation, int protectionCold)
+    public Armor(String name, String topLocation, int protectionProjectile, int protectionMelee, int protectionRadiation, int protectionCold, int numTips)
     {
         this.name = name;
         this.topLocation = topLocation;
@@ -29,11 +30,22 @@ public class Armor
         this.protectionMelee = protectionMelee;
         this.protectionRadiation = protectionRadiation;
         this.protectionCold = protectionCold;
+        this.numTips = numTips;
     }
 
     public String getPhoto()
     {
         return photo;
+    }
+
+    public int getNumTips()
+    {
+        return numTips;
+    }
+
+    public void setNumTips(int numTips)
+    {
+        this.numTips = numTips;
     }
 
     public void setPhoto(String photo)

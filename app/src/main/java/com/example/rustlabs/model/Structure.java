@@ -9,16 +9,18 @@ public class Structure
     public static final String FIELD_RAID_EXPLOSIVE_AMMO = "raidExplosiveAmmo";
 
     private String name;
+    private String photo;
 
     private int raidC4;
     private int raidRocket;
     private int raidSatchel;
     private int raidExplosiveAmmo;
     private int health;
+    private int numTips;
 
     public Structure() {}
 
-    public Structure(String name, int raidC4, int raidRocket, int raidSatchel, int raidExplosiveAmmo, int health)
+    public Structure(String name, int raidC4, int raidRocket, int raidSatchel, int raidExplosiveAmmo, int health, int numTips, String photo)
     {
         this.name = name;
         this.raidC4 = raidC4;
@@ -26,6 +28,28 @@ public class Structure
         this.raidSatchel = raidSatchel;
         this.raidExplosiveAmmo = raidExplosiveAmmo;
         this.health = health;
+        this.numTips = numTips;
+        this.photo = photo;
+    }
+
+    public int getNumTips()
+    {
+        return numTips;
+    }
+
+    public void setNumTips(int numTips)
+    {
+        this.numTips = numTips;
+    }
+
+    public String getPhoto()
+    {
+        return photo;
+    }
+
+    public void setPhoto(String photo)
+    {
+        this.photo = photo;
     }
 
     public String getName()
