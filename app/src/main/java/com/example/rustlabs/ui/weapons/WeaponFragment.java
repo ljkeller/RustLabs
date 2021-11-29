@@ -1,4 +1,4 @@
-package com.example.rustlabs.ui.dashboard;
+package com.example.rustlabs.ui.weapons;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,26 +12,25 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.R;
 import com.example.rustlabs.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment
+public class WeaponFragment extends Fragment
 {
 
-    private DashboardViewModel dashboardViewModel;
+    private WeaponViewModel weaponViewModel;
     private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        weaponViewModel =
+                new ViewModelProvider(this).get(WeaponViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
+        weaponViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
             public void onChanged(@Nullable String s)

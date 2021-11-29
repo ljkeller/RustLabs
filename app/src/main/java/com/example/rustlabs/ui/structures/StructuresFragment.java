@@ -1,4 +1,4 @@
-package com.example.rustlabs.ui.notifications;
+package com.example.rustlabs.ui.structures;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,26 +12,25 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.R;
 import com.example.rustlabs.databinding.FragmentNotificationsBinding;
 
-public class NotificationsFragment extends Fragment
+public class StructuresFragment extends Fragment
 {
 
-    private NotificationsViewModel notificationsViewModel;
+    private StructuresViewModel structuresViewModel;
     private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        structuresViewModel =
+                new ViewModelProvider(this).get(StructuresViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
+        structuresViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
             public void onChanged(@Nullable String s)
