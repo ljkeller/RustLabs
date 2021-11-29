@@ -9,17 +9,24 @@
         android:id="@+id/navigation_search"
         android:name="com.example.rustlabs.ui.search.SearchFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_weapon"
         android:name="com.example.rustlabs.ui.weapons.WeaponFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_weapon"
+        tools:layout="@layout/fragment_structures" />
 
     <fragment
         android:id="@+id/navigation_structures"
         android:name="com.example.rustlabs.ui.structures.StructuresFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:label="@string/title_structures"
+        tools:layout="@layout/fragment_weapons" />
+
+    <fragment
+        android:id="@+id/navigation_armor"
+        android:name="com.example.rustlabs.ui.armor.ArmorFragment"
+        android:label="@string/title_armor"
+        tools:layout="@layout/fragment_armor"
+        />
 </navigation>

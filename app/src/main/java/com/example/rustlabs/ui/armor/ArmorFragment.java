@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.databinding.FragmentHomeBinding;
+import com.example.rustlabs.databinding.FragmentArmorBinding;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -34,7 +34,7 @@ public class ArmorFragment extends Fragment
 {
 
     private ArmorViewModel armorViewModel;
-    private FragmentHomeBinding binding;
+    private FragmentArmorBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -42,10 +42,10 @@ public class ArmorFragment extends Fragment
         armorViewModel =
                 new ViewModelProvider(this).get(ArmorViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentArmorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textNotifications;
         armorViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
@@ -55,24 +55,6 @@ public class ArmorFragment extends Fragment
             }
         });
 
-        Button signInButton = (Button) binding.authButton;
-        signInButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                // Choose authentication providers
-                List<AuthUI.IdpConfig> providers = Arrays.asList(
-                        new AuthUI.IdpConfig.EmailBuilder().build());
-
-                // Create and launch sign-in intent
-                Intent signInIntent = AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build().setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                signInLauncher.launch(signInIntent);
-            }
-        });
         return root;
     }
 
@@ -81,33 +63,5 @@ public class ArmorFragment extends Fragment
     {
         super.onDestroyView();
         binding = null;
-    }
-
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
-
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result)
-    {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            Toast.makeText(super.getContext(), "Sign in successful", Toast.LENGTH_SHORT);
-//            Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT);
-            // ...
-        } else {
-            Toast.makeText(super.getContext(), "Sign in un-successful", Toast.LENGTH_SHORT);
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
-        }
     }
 }

@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.databinding.FragmentDashboardBinding;
+import com.example.rustlabs.databinding.FragmentWeaponsBinding;
 
 public class WeaponFragment extends Fragment
 {
 
     private WeaponViewModel weaponViewModel;
-    private FragmentDashboardBinding binding;
+    private FragmentWeaponsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -26,10 +26,10 @@ public class WeaponFragment extends Fragment
         weaponViewModel =
                 new ViewModelProvider(this).get(WeaponViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentWeaponsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.textNotifications;
         weaponViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override

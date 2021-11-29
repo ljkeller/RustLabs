@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.databinding.FragmentNotificationsBinding;
+import com.example.rustlabs.databinding.FragmentStructuresBinding;
 
 public class StructuresFragment extends Fragment
 {
 
     private StructuresViewModel structuresViewModel;
-    private FragmentNotificationsBinding binding;
+    private FragmentStructuresBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -26,10 +26,10 @@ public class StructuresFragment extends Fragment
         structuresViewModel =
                 new ViewModelProvider(this).get(StructuresViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentStructuresBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.textDashboard;
         structuresViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override

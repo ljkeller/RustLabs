@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rustlabs.databinding.FragmentHomeBinding;
+import com.example.rustlabs.databinding.FragmentSearchBinding;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -34,7 +34,7 @@ public class SearchFragment extends Fragment
 {
 
     private SearchViewModel searchViewModel;
-    private FragmentHomeBinding binding;
+    private FragmentSearchBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -42,7 +42,7 @@ public class SearchFragment extends Fragment
         searchViewModel =
                 new ViewModelProvider(this).get(SearchViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
