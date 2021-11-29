@@ -5,4 +5,10 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_button">Login</string>
+    <string name="title_weapon">Weapons</string>
+    <string name="title_armor">Armor</string>
+    <string name="title_structures">Structures</string>
+    <string name="title_search">Search</string>
+    <string name="title_servers">Servers</string>
 </resources>
