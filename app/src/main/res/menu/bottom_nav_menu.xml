@@ -9,16 +9,16 @@
 
     <item
         android:id="@+id/navigation_weapon"
-        android:icon="@android:drawable/ic_menu_mylocation"
+        android:icon="@mipmap/ar_enlarged_no_trim_foreground"
         android:title="@string/title_weapon" />
 
     <item
         android:id="@+id/navigation_armor"
-        android:icon="@android:drawable/stat_sys_headset"
+        android:icon="@mipmap/hazmat_suit_foreground"
         android:title="@string/title_armor" />
     <item
         android:id="@+id/navigation_structures"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@mipmap/hammer_foreground"
         android:title="@string/title_structures" />
 
 </menu>
