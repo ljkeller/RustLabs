@@ -12,7 +12,7 @@ public class StructuresViewModel extends ViewModel
     public StructuresViewModel()
     {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is the structures fragment");
     }
 
     public LiveData<String> getText()

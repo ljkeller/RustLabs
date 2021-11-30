@@ -12,7 +12,7 @@ public class WeaponViewModel extends ViewModel
     public WeaponViewModel()
     {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is the weapons fragment");
     }
 
     public LiveData<String> getText()

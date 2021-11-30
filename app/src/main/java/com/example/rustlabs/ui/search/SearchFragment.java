@@ -2,6 +2,7 @@ package com.example.rustlabs.ui.search;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -69,7 +70,7 @@ public class SearchFragment extends Fragment
                 Intent signInIntent = AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
-                        .build().setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                        .build();
                 signInLauncher.launch(signInIntent);
             }
         });

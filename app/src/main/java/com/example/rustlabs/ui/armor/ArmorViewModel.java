@@ -12,7 +12,7 @@ public class ArmorViewModel extends ViewModel
     public ArmorViewModel()
     {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is the armor fragment");
     }
 
     public LiveData<String> getText()
