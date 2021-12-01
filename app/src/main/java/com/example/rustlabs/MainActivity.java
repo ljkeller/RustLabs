@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -13,9 +14,14 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.rustlabs.databinding.ActivityMainBinding;
 import com.example.rustlabs.viewmodel.MainActivityViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -61,6 +67,28 @@ public class MainActivity extends AppCompatActivity
             startSignIn();
             return;
         }
+//
+//        Query query = mFirestore.collection("weapons").orderBy("damage");
+        // quickly read data, make non-blocking call
+        Task<QuerySnapshot> querySnapshotTask =
+                mFirestore.collection("weapons").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                Log.i(TAG, document.getId() + "=>" + document.getData());
+                            }
+                        } else
+                        {
+                            Log.d(TAG, "Error getting document");
+                        }
+                    }
+                });
+
 
         //        // Apply filters
         //        onFilter(mViewModel.getFilters());
