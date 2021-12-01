@@ -56,24 +56,24 @@ public class SearchFragment extends Fragment
             }
         });
 
-        Button signInButton = (Button) binding.authButton;
-        signInButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                // Choose authentication providers
-                List<AuthUI.IdpConfig> providers = Arrays.asList(
-                        new AuthUI.IdpConfig.EmailBuilder().build());
-
-                // Create and launch sign-in intent
-                Intent signInIntent = AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build();
-                signInLauncher.launch(signInIntent);
-            }
-        });
+//        Button signInButton = (Button) binding.authButton;
+//        signInButton.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                // Choose authentication providers
+//                List<AuthUI.IdpConfig> providers = Arrays.asList(
+//                        new AuthUI.IdpConfig.EmailBuilder().build());
+//
+//                // Create and launch sign-in intent
+//                Intent signInIntent = AuthUI.getInstance()
+//                        .createSignInIntentBuilder()
+//                        .setAvailableProviders(providers)
+//                        .build();
+//                signInLauncher.launch(signInIntent);
+//            }
+//        });
         return root;
     }
 
@@ -84,31 +84,31 @@ public class SearchFragment extends Fragment
         binding = null;
     }
 
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
+//    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+//            new FirebaseAuthUIActivityResultContract(),
+//            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
+//                @Override
+//                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
+//                    onSignInResult(result);
+//                }
+//            }
+//    );
 
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result)
-    {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            Toast.makeText(super.getContext(), "Sign in successful", Toast.LENGTH_SHORT);
-//            Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT);
-            // ...
-        } else {
-            Toast.makeText(super.getContext(), "Sign in un-successful", Toast.LENGTH_SHORT);
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
-        }
-    }
+//    private void onSignInResult(FirebaseAuthUIAuthenticationResult result)
+//    {
+//        IdpResponse response = result.getIdpResponse();
+//        if (result.getResultCode() == RESULT_OK) {
+//            // Successfully signed in
+//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//            Toast.makeText(super.getContext(), "Sign in successful", Toast.LENGTH_SHORT);
+////            Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT);
+//            // ...
+//        } else {
+//            Toast.makeText(super.getContext(), "Sign in un-successful", Toast.LENGTH_SHORT);
+//            // Sign in failed. If response is null the user canceled the
+//            // sign-in flow using the back button. Otherwise check
+//            // response.getError().getErrorCode() and handle the error.
+//            // ...
+//        }
+//    }
 }
