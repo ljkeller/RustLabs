@@ -45,7 +45,7 @@ public class ArmorFragment extends Fragment
         binding = FragmentArmorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.textArmor;
         armorViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override

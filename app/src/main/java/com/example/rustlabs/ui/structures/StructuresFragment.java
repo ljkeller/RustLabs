@@ -29,7 +29,7 @@ public class StructuresFragment extends Fragment
         binding = FragmentStructuresBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.textStructures;
         structuresViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override

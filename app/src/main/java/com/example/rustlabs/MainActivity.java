@@ -2,18 +2,9 @@ package com.example.rustlabs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.example.rustlabs.viewmodel.MainActivityViewModel;
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
-import com.firebase.ui.auth.IdpResponse;
-import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,41 +12,19 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.rustlabs.databinding.ActivityMainBinding;
+import com.example.rustlabs.viewmodel.MainActivityViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
-
+    private static final String TAG = "MainActivity";
+    NavController mNavController;
     private ActivityMainBinding binding;
-
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
-
     private MainActivityViewModel mViewModel;
-
-    private int RC_SIGN_IN = 1822;
-
-//    private void onSignInResult(FirebaseAuthUIAuthenticationResult result)
-//    {
-//        IdpResponse response = result.getIdpResponse();
-//        if (result.getResultCode() == RESULT_OK) {
-//            // Successfully signed in
-//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//            Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT);
-//            // ...
-//        } else {
-//            Toast.makeText(this, "Sign in un-successful", Toast.LENGTH_SHORT);
-//            // Sign in failed. If response is null the user canceled the
-//            // sign-in flow using the back button. Otherwise check
-//            // response.getError().getErrorCode() and handle the error.
-//            // ...
-//        }
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,9 +45,9 @@ public class MainActivity extends AppCompatActivity
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_search, R.id.navigation_weapon, R.id.navigation_structures)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupActionBarWithNavController(this, mNavController, appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.navView, mNavController);
     }
 
     @Override
@@ -86,113 +55,50 @@ public class MainActivity extends AppCompatActivity
     {
         super.onStart();
 
-//        // Choose authentication providers
-//        List<AuthUI.IdpConfig> providers = Arrays.asList(
-//                new AuthUI.IdpConfig.EmailBuilder().build());
-//
-//        // Create and launch sign-in intent
-//        Intent signInIntent = AuthUI.getInstance()
-//                .createSignInIntentBuilder()
-//                .setAvailableProviders(providers)
-//                .build();
-//        signInLauncher.launch(signInIntent);
-//
-//
-//        // Start sign in if necessary
-//        if (shouldStartSignIn())
-//        {
-//            startSignIn();
-//            return;
-//        }
-
-//        // Apply filters
-//        onFilter(mViewModel.getFilters());
-//
-//        // Start listening for Firestore updates
-//        if (mAdapter != null)
-//        {
-//            mAdapter.startListening();
-//        }
-
-        // Choose authentication providers
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build());
-
-        // Create and launch sign-in intent
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build();
-        signInLauncher.launch(signInIntent);
-
-    }
-
-
-    // See: https://developer.android.com/training/basics/intents/result
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
-
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            // ...
-        } else {
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
+        // Start sign in if necessary
+        if (shouldStartSignIn())
+        {
+            startSignIn();
+            return;
         }
+
+        //        // Apply filters
+        //        onFilter(mViewModel.getFilters());
+        //
+        //        // Start listening for Firestore updates
+        //        if (mAdapter != null)
+        //        {
+        //            mAdapter.startListening();
+        //        }
     }
 
     @Override
     public void onStop()
     {
         super.onStop();
-//        if (mAdapter != null)
-//        {
-//            mAdapter.stopListening();
-//        }
+        //        if (mAdapter != null)
+        //        {
+        //            mAdapter.stopListening();
+        //        }
     }
 
-//    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-//            new FirebaseAuthUIActivityResultContract(),
-//            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-//                @Override
-//                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-//                    onSignInResult(result);
-//                }
-//            }
-//    );
 
     private boolean shouldStartSignIn()
     {
-        return (!mViewModel.getIsSigningIn() && mAuth.getCurrentUser() == null);
+        Log.d(TAG, "shouldStartSignIn() called");
+        return (mAuth.getCurrentUser() == null);
     }
 
-    public void startSignIn(View view)
+    public void startSignIn()
     {
-//        // Sign in with FirebaseUI
-//        Intent intent = FirebaseUtil.getAuthUI()
-//                .createSignInIntentBuilder()
-//                .setAvailableProviders(Collections.singletonList(
-//                        new AuthUI.IdpConfig.EmailBuilder().build()))
-//                .setIsSmartLockEnabled(false)
-//                .build();
-//
-//        startActivityForResult(intent, RC_SIGN_IN);
-        mViewModel.setIsSigningIn(true);
+        Log.d(TAG, "startSignIn() called");
+
+        startActivity(new Intent(this, FirebaseAuthActivity.class));
+        finish();
     }
 
-    private void onFilter() {
+    private void onFilter()
+    {
         //TODO: Implement
     }
 

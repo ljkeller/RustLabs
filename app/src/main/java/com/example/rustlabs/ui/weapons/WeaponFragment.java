@@ -29,7 +29,7 @@ public class WeaponFragment extends Fragment
         binding = FragmentWeaponsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.textWeapon;
         weaponViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
