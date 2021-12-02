@@ -11,4 +11,9 @@
     <string name="title_structures">Structures</string>
     <string name="title_search">Search</string>
     <string name="title_servers">Servers</string>
+    <string name="sample_weapon_title">Assault Rifle</string>
+    <string name="sample_weapon_damage">50</string>
+    <string name="sample_weapon_top_location">Locked Crate</string>
+    <string name="sample_weapon_ammo_type">5.56 Rifle Ammo</string>
+    <string name="damage">Damage:</string>
 </resources>

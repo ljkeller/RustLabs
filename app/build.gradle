@@ -63,4 +63,6 @@ dependencies {
     // FirebaseUI (for authentication)
     implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
 
+    // Third party
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
 }
