@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/tip_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="3dp"
+        android:ellipsize="end"
+        android:maxWidth="120dp"
+        android:maxLines="1"
+        android:textStyle="bold"
+        tools:text="Joseph Smith" />
+
+    <TextView
+        android:id="@+id/tip_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/tip_item_name"
+        android:layout_toRightOf="@id/tip_item_name"
+        tools:text="12/01/2021" />
+
+    <TextView
+        android:id="@+id/tip_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tip_item_date"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="4dp"
+        tools:text="If you use this item, you're the biggest noob in the game. Get good, kid" />
+
+</RelativeLayout>

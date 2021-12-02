@@ -119,7 +119,7 @@ public abstract class FirestoreAdapter<VH extends RecyclerView.ViewHolder>
             mSnapshots.add(change.getNewIndex(), change.getDocument());
             notifyItemMoved(change.getOldIndex(), change.getNewIndex());
         }
-        }
+
     }
 
     protected void onDocumentRemoved(DocumentChange change)
