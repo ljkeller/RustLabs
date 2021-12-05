@@ -47,6 +47,7 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
     private Query FirebaseUtil;
 
     private RecyclerView mWeaponRecycler;
+    private TextView mEmptyTextView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -59,13 +60,13 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
         binding = FragmentWeaponsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textWeapon;
+        mEmptyTextView = binding.textWeapon;
         weaponViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
             public void onChanged(@Nullable String s)
             {
-                textView.setText(s);
+                mEmptyTextView.setText(s);
             }
         });
 
@@ -124,14 +125,12 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
                 if (getItemCount() == 0)
                 {
                     mWeaponRecycler.setVisibility(View.GONE);
-//                    mEmptyView.setVisibility(View.VISIBLE);
-                    Log.w(TAG, "onDataChanged: Item count 0!");
-                    //TODO: Add empty view?
+                    mEmptyTextView.setVisibility(View.VISIBLE);
                 }
                 else
                 {
                     mWeaponRecycler.setVisibility(View.VISIBLE);
-//                    mEmptyView.setVisibility(View.GONE);
+                    mEmptyTextView.setVisibility(View.GONE);
                 }
             }
 
