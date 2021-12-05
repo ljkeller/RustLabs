@@ -23,4 +23,12 @@
     <string name="sample_protection_radiation">50</string>
     <string name="sample_top_location">Crate</string>
     <string name="top_location_const">Top Location:</string>
+    <string name="sample_structure_name">Armored Double Door</string>
+    <string name="sample_structure_title">Armored Double Door</string>
+    <string name="health_const">Health:</string>
+    <string name="sample_health_value">800</string>
+    <string name="sample_c4_cost">2</string>
+    <string name="sample_rocket_cost">4</string>
+    <string name="sample_satchel_cost">12</string>
+    <string name="sample_explosive_ammo_cost">200</string>
 </resources>

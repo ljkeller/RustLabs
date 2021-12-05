@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/structure_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/secondary_background"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/armored_double_door_foreground" />
+
+    <TextView
+        android:id="@+id/structure_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/structure_image"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="118dp"
+        android:layout_toEndOf="@+id/structure_image"
+        android:text="@string/sample_structure_title"
+        android:textAllCaps="false"
+        android:textColor="@color/link_text"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/health_const"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/structure_name"
+        android:layout_alignStart="@+id/structure_name"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/health_const"
+        android:textColor="@color/primary_text" />
+
+    <ImageView
+        android:id="@+id/c4_image"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/health_const"
+        android:layout_alignStart="@+id/health_const"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@mipmap/c4_foreground" />
+
+    <ImageView
+        android:id="@+id/rocket_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/c4_cost"
+        app:srcCompat="@mipmap/rocket_foreground" />
+
+    <ImageView
+        android:id="@+id/explosive_ammo_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/rocket_cost"
+        app:srcCompat="@mipmap/explosive_ammo_foreground" />
+
+    <ImageView
+        android:id="@+id/satchel_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/explosive_ammo_cost"
+        app:srcCompat="@mipmap/satchel_foreground" />
+
+    <TextView
+        android:id="@+id/c4_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/c4_image"
+        android:text="@string/sample_c4_cost"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/rocket_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/rocket_image"
+        android:text="@string/sample_rocket_cost"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/explosive_ammo_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/explosive_ammo_image"
+        android:text="@string/sample_explosive_ammo_cost"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/satchel_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/health_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/satchel_image"
+        android:text="@string/sample_satchel_cost"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/structure_name"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@+id/health_const"
+        android:text="@string/sample_health_value"
+        android:textColor="@color/primary_text" />
+
+</RelativeLayout>
