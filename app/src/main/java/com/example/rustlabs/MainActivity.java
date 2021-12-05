@@ -25,6 +25,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity
 {
+    private static final int LIMIT = 50;
+
     private static final String TAG = "MainActivity";
     NavController mNavController;
     private ActivityMainBinding binding;
@@ -170,5 +172,15 @@ public class MainActivity extends AppCompatActivity
     private void showTodoToast()
     {
         Toast.makeText(this, "TODO: Implement", Toast.LENGTH_SHORT).show();
+    }
+
+    public FirebaseFirestore getFirestore()
+    {
+        return mFirestore;
+    }
+
+    public int getRecyclerViewLimit()
+    {
+        return LIMIT;
     }
 }

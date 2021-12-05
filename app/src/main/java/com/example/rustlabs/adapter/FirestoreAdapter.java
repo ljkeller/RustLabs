@@ -61,7 +61,7 @@ public abstract class FirestoreAdapter<VH extends RecyclerView.ViewHolder>
             }
         }
 
-        onDateChanged();
+        onDataChanged();
     }
 
     public void stopListening()
@@ -95,9 +95,9 @@ public abstract class FirestoreAdapter<VH extends RecyclerView.ViewHolder>
 
     protected DocumentSnapshot getSnapshot(int index) { return mSnapshots.get(index); }
 
-    protected void onError(FirebaseFirestoreException e) {}
+    protected void onError(FirebaseFirestoreException e) {};
 
-    protected void onDateChanged() {}
+    protected void onDataChanged() {};
 
     protected void onDocumentAdded(DocumentChange change)
     {
