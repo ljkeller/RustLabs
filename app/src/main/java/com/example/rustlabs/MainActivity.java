@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,14 +14,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.rustlabs.databinding.ActivityMainBinding;
 import com.example.rustlabs.viewmodel.MainActivityViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -42,6 +37,12 @@ public class MainActivity extends AppCompatActivity
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME |
+                                                        ActionBar.DISPLAY_SHOW_TITLE |
+                                                        ActionBar.DISPLAY_USE_LOGO);
+        getSupportActionBar().setIcon(R.mipmap.logo_foreground);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_search, R.id.navigation_weapon, R.id.navigation_structures)
+                R.id.navigation_search, R.id.navigation_weapon, R.id.navigation_weapon)
                 .build();
         mNavController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, mNavController, appBarConfiguration);
