@@ -33,6 +33,18 @@ public class Armor
         this.numTips = numTips;
     }
 
+    public Armor(String name, String topLocation, String craftCost, String picture, int protectionProjectile, int protectionMelee, int protectionRadiation, int protectionCold)
+    {
+        this.name = name;
+        this.topLocation = topLocation;
+        this.craftCost = craftCost;
+        this.picture = picture;
+        this.protectionProjectile = protectionProjectile;
+        this.protectionMelee = protectionMelee;
+        this.protectionRadiation = protectionRadiation;
+        this.protectionCold = protectionCold;
+    }
+
     public String getPicture()
     {
         return picture;

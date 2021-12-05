@@ -41,10 +41,7 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
     private WeaponViewModel weaponViewModel;
     private FragmentWeaponsBinding binding;
 
-    private Query mQuery;
-
     private FirebaseFirestore mFirestore;
-    private Query FirebaseUtil;
 
     private RecyclerView mWeaponRecycler;
     private TextView mEmptyTextView;

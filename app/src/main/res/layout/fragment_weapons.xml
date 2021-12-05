@@ -5,7 +5,7 @@
     android:id="@+id/weapon_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.structures.WeaponFragment">
+    tools:context=".ui.weapons.WeaponFragment">
 
     <TextView
         android:id="@+id/text_weapon"

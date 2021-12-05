@@ -59,7 +59,7 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
         {
             //TODO: Finalize View contents. Keep toplocation?
             super(itemView);
-            photoView = itemView.findViewById(R.id.weapon_image);
+            photoView = itemView.findViewById(R.id.armor_image);
             nameView = itemView.findViewById(R.id.armor_name);
             protectionProjectileView =  itemView.findViewById(R.id.protection_projectile);
             protectionMeleeView =  itemView.findViewById(R.id.protection_melee);
@@ -79,10 +79,10 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
 
             // Update row entry
             nameView.setText(armor.getName());
-            protectionProjectileView.setText(armor.getProtectionProjectile());
-            protectionMeleeView.setText(armor.getProtectionMelee());
-            protectionColdView.setText(armor.getProtectionCold());
-            protectionRadiationView.setText(armor.getProtectionRadiation());
+            protectionProjectileView.setText(String.valueOf(armor.getProtectionProjectile()));
+            protectionMeleeView.setText(String.valueOf(armor.getProtectionMelee()));
+            protectionColdView.setText(String.valueOf(armor.getProtectionCold()));
+            protectionRadiationView.setText(String.valueOf(armor.getProtectionRadiation()));
             topLocationView.setText(armor.getTopLocation());
 
             itemView.setOnClickListener(new View.OnClickListener()
