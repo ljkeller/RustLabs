@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
+    android:background="@color/primary_background"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -11,7 +11,7 @@
         android:id="@+id/weapon_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="#757575"
+        android:background="@color/secondary_background"
         android:scaleType="centerCrop"
         android:src="@mipmap/ar_enlarged_no_trim_foreground" />
 
@@ -27,6 +27,7 @@
         android:layout_toEndOf="@+id/weapon_image"
         android:text="@string/sample_weapon_title"
         android:textAllCaps="false"
+        android:textColor="@color/link_text"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -38,7 +39,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@+id/const_damage_view"
-        android:text="@string/sample_weapon_damage" />
+        android:text="@string/sample_weapon_damage"
+        android:textColor="@color/primary_text" />
 
     <TextView
         android:id="@+id/const_damage_view"
@@ -48,7 +50,8 @@
         android:layout_alignStart="@+id/weapon_name"
         android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
-        android:text="@string/damage" />
+        android:text="@string/damage"
+        android:textColor="@color/primary_text" />
 
     <TextView
         android:id="@+id/weapon_ammo_type"
@@ -58,6 +61,7 @@
         android:layout_alignStart="@+id/weapon_name"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
-        android:text="@string/sample_weapon_ammo_type" />
+        android:text="@string/sample_weapon_ammo_type"
+        android:textColor="@color/primary_text" />
 
 </RelativeLayout>
