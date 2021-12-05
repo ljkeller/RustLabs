@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/armor_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/secondary_background"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/hazmat_suit_foreground" />
+
+    <TextView
+        android:id="@+id/armor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/armor_image"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="118dp"
+        android:layout_toEndOf="@+id/armor_image"
+        android:text="@string/sample_armor_title"
+        android:textAllCaps="false"
+        android:textColor="@color/link_text"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/top_location_const"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/armor_name"
+        android:layout_alignStart="@+id/armor_name"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/top_location_const"
+        android:textColor="@color/primary_text" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/top_location_const"
+        android:layout_alignStart="@+id/top_location_const"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@mipmap/projectile_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/top_location_const"
+        android:layout_alignStart="@+id/top_location_const"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@mipmap/projectile_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/projectile_protection"
+        app:srcCompat="@mipmap/melee_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/melee_protection"
+        app:srcCompat="@mipmap/cold_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/cold_protection"
+        app:srcCompat="@mipmap/radiation_foreground" />
+
+    <TextView
+        android:id="@+id/projectile_protection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="@string/sample_projectile_protection"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/melee_protection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:text="@string/sample_melee_protection"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/cold_protection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/imageView4"
+        android:text="@string/sample_protection_cold"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/radiation_protection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_location_const"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="@string/sample_protection_radiation"
+        android:textColor="@color/primary_text" />
+
+    <TextView
+        android:id="@+id/top_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/armor_name"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/top_location_const"
+        android:text="@string/sample_top_location"
+        android:textColor="@color/primary_text" />
+
+</RelativeLayout>

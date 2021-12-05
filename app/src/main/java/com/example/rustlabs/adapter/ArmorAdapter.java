@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.rustlabs.R;
-import com.example.rustlabs.model.Weapon;
+import com.example.rustlabs.model.Armor;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 
-public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
+public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
 {
     @NonNull
     @Override
@@ -24,7 +24,7 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
     {
         //TODO: Create weapon item XML
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ViewHolder(inflater.inflate(R.layout.weapon, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.armor, parent, false));
     }
 
     @Override
@@ -33,13 +33,13 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
         holder.bind(getSnapshot(position), mListener);
     }
 
-    public interface OnWeaponSelectedListener {
-        void onWeaponSelected(DocumentSnapshot weapon);
+    public interface OnArmorSelectedListener {
+        void onArmorSelected(DocumentSnapshot armor);
     }
 
-    private OnWeaponSelectedListener mListener;
+    private OnArmorSelectedListener mListener;
 
-    public WeaponAdapter(Query query, OnWeaponSelectedListener listener)
+    public ArmorAdapter(Query query, OnArmorSelectedListener listener)
     {
         super(query);
         mListener = listener;
@@ -49,9 +49,10 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
     {
         ImageView photoView;
         TextView nameView;
-        TextView ammoTypeView;
-        TextView topLocationView;
-        TextView damageView;
+        TextView protectionProjectileView;
+        TextView protectionMeleeView;
+        TextView protectionColdView;
+        TextView protectionRadiationView;
 
         public ViewHolder(View itemView)
         {
@@ -59,25 +60,27 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
             super(itemView);
             photoView = itemView.findViewById(R.id.weapon_image);
             nameView = itemView.findViewById(R.id.armor_name);
-            ammoTypeView = itemView.findViewById(R.id.top_location_const);
-            //topLocationView = itemView.findViewById(R.id.weapon_top_location);
-            damageView =  itemView.findViewById(R.id.weapon_damage);
+            protectionProjectileView =  itemView.findViewById(R.id.protection_projectile);
+            protectionMeleeView =  itemView.findViewById(R.id.protection_melee);
+            protectionColdView =  itemView.findViewById(R.id.protection_cold);
+            protectionRadiationView =  itemView.findViewById(R.id.protection_radiation);
         }
 
-        public void bind(final DocumentSnapshot snapshot, final OnWeaponSelectedListener listener)
+        public void bind(final DocumentSnapshot snapshot, final OnArmorSelectedListener listener)
         {
             //TODO: FILL bind
-            Weapon weapon = snapshot.toObject(Weapon.class);
+            Armor armor = snapshot.toObject(Armor.class);
             Resources resources = itemView.getResources();
 
             // Load image
-            Glide.with(photoView.getContext()).load(weapon.getPicture()).into(photoView);
+            Glide.with(photoView.getContext()).load(armor.getPicture()).into(photoView);
 
             // Update row entry
-            nameView.setText(weapon.getName());
-            ammoTypeView.setText(weapon.getAmmoType());
-//            topLocationView.setText(weapon.getTopLocation());
-            damageView.setText(String.valueOf(weapon.getDamage()));
+            nameView.setText(armor.getName());
+            protectionProjectileView.setText(armor.getProtectionProjectile());
+            protectionMeleeView.setText(armor.getProtectionMelee());
+            protectionColdView.setText(armor.getProtectionCold());
+            protectionRadiationView.setText(armor.getProtectionRadiation());
 
             itemView.setOnClickListener(new View.OnClickListener()
             {
@@ -86,7 +89,7 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
                 {
                     if (listener != null)
                     {
-                        listener.onWeaponSelected(snapshot);
+                        listener.onArmorSelected(snapshot);
                     }
                 }
             });

@@ -16,4 +16,11 @@
     <string name="sample_weapon_top_location">Locked Crate</string>
     <string name="sample_weapon_ammo_type">5.56 Rifle Ammo</string>
     <string name="damage">Damage:</string>
+    <string name="sample_armor_title">Hazmat Suit</string>
+    <string name="sample_projectile_protection">30</string>
+    <string name="sample_melee_protection">30</string>
+    <string name="sample_protection_cold">8</string>
+    <string name="sample_protection_radiation">50</string>
+    <string name="sample_top_location">Crate</string>
+    <string name="top_location_const">Top Location:</string>
 </resources>

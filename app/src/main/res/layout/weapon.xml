@@ -16,7 +16,7 @@
         android:src="@mipmap/ar_enlarged_no_trim_foreground" />
 
     <TextView
-        android:id="@+id/weapon_name"
+        android:id="@+id/armor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/weapon_image"
@@ -35,7 +35,7 @@
         android:id="@+id/weapon_damage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/weapon_ammo_type"
+        android:layout_below="@+id/top_location_const"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@+id/const_damage_view"
@@ -46,19 +46,19 @@
         android:id="@+id/const_damage_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/weapon_ammo_type"
-        android:layout_alignStart="@+id/weapon_name"
+        android:layout_below="@+id/top_location_const"
+        android:layout_alignStart="@+id/armor_name"
         android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
         android:text="@string/damage"
         android:textColor="@color/primary_text" />
 
     <TextView
-        android:id="@+id/weapon_ammo_type"
+        android:id="@+id/top_location_const"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/weapon_name"
-        android:layout_alignStart="@+id/weapon_name"
+        android:layout_below="@+id/armor_name"
+        android:layout_alignStart="@+id/armor_name"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:text="@string/sample_weapon_ammo_type"

@@ -12,7 +12,7 @@ public class Armor
     private String name;
     private String topLocation;
     private String craftCost;
-    private String photo;
+    private String picture;
 
     private int protectionProjectile;
     private int protectionMelee;
@@ -33,9 +33,9 @@ public class Armor
         this.numTips = numTips;
     }
 
-    public String getPhoto()
+    public String getPicture()
     {
-        return photo;
+        return picture;
     }
 
     public int getNumTips()
@@ -48,9 +48,9 @@ public class Armor
         this.numTips = numTips;
     }
 
-    public void setPhoto(String photo)
+    public void setPicture(String picture)
     {
-        this.photo = photo;
+        this.picture = picture;
     }
 
     public String getName()
