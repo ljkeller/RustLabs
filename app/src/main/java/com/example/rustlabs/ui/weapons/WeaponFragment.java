@@ -20,11 +20,15 @@ import com.example.rustlabs.MainActivity;
 import com.example.rustlabs.R;
 import com.example.rustlabs.adapter.WeaponAdapter;
 import com.example.rustlabs.databinding.FragmentWeaponsBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSelectedListener, View.OnClickListener
 {
@@ -115,6 +119,7 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
             @Override
             protected void onDataChanged()
             {
+                Log.d(TAG, "onDataChanged() called");
                 // Show/hide content if the query returns empty.
                 if (getItemCount() == 0)
                 {
@@ -142,6 +147,8 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
 
         mWeaponRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         mWeaponRecycler.setAdapter(weaponViewModel.getAdapter());
+
+
     }
 
     @Override
@@ -152,14 +159,37 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
     }
 
     @Override
+    public void onStart()
+    {
+        super.onStart();
+        if (weaponViewModel.getAdapter() != null)
+        {
+            weaponViewModel.getAdapter().startListening();
+        }
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+
+        if (weaponViewModel.getAdapter() != null)
+        {
+            weaponViewModel.getAdapter().stopListening();
+        }
+    }
+
+    @Override
     public void onWeaponSelected(DocumentSnapshot weapon)
     {
-        //TODO: Implement
+        //TODO: Implement'
+        Log.d(TAG, "onWeaponSelected() called with: weapon = [" + weapon + "]");
     }
 
     @Override
     public void onClick(View v)
     {
         //TODO: implement
+        Log.d(TAG, "onClick() called with: v = [" + v + "]");
     }
 }

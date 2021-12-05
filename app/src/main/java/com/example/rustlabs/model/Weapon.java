@@ -41,12 +41,12 @@ public class Weapon
         this.ammoType = ammoType;
     }
 
-    public String getPhoto()
+    public String getPicture()
     {
         return photo;
     }
 
-    public void setPhoto(String photo)
+    public void setPicture(String photo)
     {
         this.photo = photo;
     }

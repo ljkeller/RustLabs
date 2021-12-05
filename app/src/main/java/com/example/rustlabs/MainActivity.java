@@ -72,62 +72,62 @@ public class MainActivity extends AppCompatActivity
 //
 //        Query query = mFirestore.collection("weapons").orderBy("damage");
         // quickly read data, make non-blocking call
-        Task<QuerySnapshot> querySnapshotTask =
-                mFirestore.collection("weapons").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
-                {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task)
-                    {
-                        if (task.isSuccessful())
-                        {
-                            for (QueryDocumentSnapshot document : task.getResult())
-                            {
-                                Log.i(TAG, document.getId() + "=>" + document.getData());
-                            }
-                        } else
-                        {
-                            Log.d(TAG, "Error getting weapon document");
-                        }
-                    }
-                });
-
-        Task<QuerySnapshot> querySnapshotTaskArmor =
-                mFirestore.collection("armor").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
-                {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task)
-                    {
-                        if (task.isSuccessful())
-                        {
-                            for (QueryDocumentSnapshot document : task.getResult())
-                            {
-                                Log.i(TAG, document.getId() + "=>" + document.getData());
-                            }
-                        } else
-                        {
-                            Log.d(TAG, "Error getting armor document");
-                        }
-                    }
-                });
-
-        Task<QuerySnapshot> querySnapshotTaskStructures =
-                mFirestore.collection("structures").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
-                {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task)
-                    {
-                        if (task.isSuccessful())
-                        {
-                            for (QueryDocumentSnapshot document : task.getResult())
-                            {
-                                Log.i(TAG, document.getId() + "=>" + document.getData());
-                            }
-                        } else
-                        {
-                            Log.d(TAG, "Error getting structures document");
-                        }
-                    }
-                });
+//        Task<QuerySnapshot> querySnapshotTask =
+//                mFirestore.collection("weapons").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+//                {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+//                    {
+//                        if (task.isSuccessful())
+//                        {
+//                            for (QueryDocumentSnapshot document : task.getResult())
+//                            {
+//                                Log.i(TAG, document.getId() + "=>" + document.getData());
+//                            }
+//                        } else
+//                        {
+//                            Log.d(TAG, "Error getting weapon document");
+//                        }
+//                    }
+//                });
+//
+//        Task<QuerySnapshot> querySnapshotTaskArmor =
+//                mFirestore.collection("armor").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+//                {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+//                    {
+//                        if (task.isSuccessful())
+//                        {
+//                            for (QueryDocumentSnapshot document : task.getResult())
+//                            {
+//                                Log.i(TAG, document.getId() + "=>" + document.getData());
+//                            }
+//                        } else
+//                        {
+//                            Log.d(TAG, "Error getting armor document");
+//                        }
+//                    }
+//                });
+//
+//        Task<QuerySnapshot> querySnapshotTaskStructures =
+//                mFirestore.collection("structures").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+//                {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task)
+//                    {
+//                        if (task.isSuccessful())
+//                        {
+//                            for (QueryDocumentSnapshot document : task.getResult())
+//                            {
+//                                Log.i(TAG, document.getId() + "=>" + document.getData());
+//                            }
+//                        } else
+//                        {
+//                            Log.d(TAG, "Error getting structures document");
+//                        }
+//                    }
+//                });
 
         //        // Apply filters
         //        onFilter(mViewModel.getFilters());

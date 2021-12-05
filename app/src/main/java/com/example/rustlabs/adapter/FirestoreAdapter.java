@@ -54,10 +54,13 @@ public abstract class FirestoreAdapter<VH extends RecyclerView.ViewHolder>
             {
                 case ADDED:
                     onDocumentAdded(change);
+                    break;
                 case REMOVED:
                     onDocumentRemoved(change);
+                    break;
                 case MODIFIED:
                     onDocumentModified(change);
+                    break;
             }
         }
 

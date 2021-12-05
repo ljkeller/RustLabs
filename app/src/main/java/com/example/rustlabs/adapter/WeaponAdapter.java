@@ -59,7 +59,7 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
             super(itemView);
             photoView = itemView.findViewById(R.id.weapon_image);
             nameView = itemView.findViewById(R.id.weapon_name);
-            ammoTypeView = itemView.findViewById(R.id.weapon_damage);
+            ammoTypeView = itemView.findViewById(R.id.weapon_ammo_type);
             //topLocationView = itemView.findViewById(R.id.weapon_top_location);
             damageView =  itemView.findViewById(R.id.weapon_damage);
         }
@@ -71,13 +71,13 @@ public class WeaponAdapter extends FirestoreAdapter<WeaponAdapter.ViewHolder>
             Resources resources = itemView.getResources();
 
             // Load image
-            Glide.with(photoView.getContext()).load(weapon.getPhoto()).into(photoView);
+            Glide.with(photoView.getContext()).load(weapon.getPicture()).into(photoView);
 
             // Update row entry
             nameView.setText(weapon.getName());
             ammoTypeView.setText(weapon.getAmmoType());
-            topLocationView.setText(weapon.getTopLocation());
-            damageView.setText(weapon.getTopLocation());
+//            topLocationView.setText(weapon.getTopLocation());
+            damageView.setText(String.valueOf(weapon.getDamage()));
 
             itemView.setOnClickListener(new View.OnClickListener()
             {
