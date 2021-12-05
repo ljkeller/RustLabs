@@ -70,7 +70,7 @@
         android:layout_below="@+id/top_location_const"
         android:layout_marginStart="6dp"
         android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/projectile_protection"
+        android:layout_toEndOf="@+id/protection_projectile"
         app:srcCompat="@mipmap/melee_foreground" />
 
     <ImageView
@@ -80,7 +80,7 @@
         android:layout_below="@+id/top_location_const"
         android:layout_marginStart="6dp"
         android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/melee_protection"
+        android:layout_toEndOf="@+id/protection_melee"
         app:srcCompat="@mipmap/cold_foreground" />
 
     <ImageView
@@ -90,11 +90,11 @@
         android:layout_below="@+id/top_location_const"
         android:layout_marginStart="6dp"
         android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/cold_protection"
+        android:layout_toEndOf="@+id/protection_cold"
         app:srcCompat="@mipmap/radiation_foreground" />
 
     <TextView
-        android:id="@+id/projectile_protection"
+        android:id="@+id/protection_projectile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_location_const"
@@ -105,7 +105,7 @@
         android:textColor="@color/primary_text" />
 
     <TextView
-        android:id="@+id/melee_protection"
+        android:id="@+id/protection_melee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_location_const"
@@ -116,7 +116,7 @@
         android:textColor="@color/primary_text" />
 
     <TextView
-        android:id="@+id/cold_protection"
+        android:id="@+id/protection_cold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_location_const"
@@ -127,7 +127,7 @@
         android:textColor="@color/primary_text" />
 
     <TextView
-        android:id="@+id/radiation_protection"
+        android:id="@+id/protection_radiation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_location_const"
@@ -143,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/armor_name"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:layout_toEndOf="@+id/top_location_const"
         android:text="@string/sample_top_location"
         android:textColor="@color/primary_text" />

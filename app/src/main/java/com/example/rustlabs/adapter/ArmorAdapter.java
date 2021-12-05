@@ -53,6 +53,7 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
         TextView protectionMeleeView;
         TextView protectionColdView;
         TextView protectionRadiationView;
+        TextView topLocationView;
 
         public ViewHolder(View itemView)
         {
@@ -64,6 +65,7 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
             protectionMeleeView =  itemView.findViewById(R.id.protection_melee);
             protectionColdView =  itemView.findViewById(R.id.protection_cold);
             protectionRadiationView =  itemView.findViewById(R.id.protection_radiation);
+            topLocationView = itemView.findViewById(R.id.top_location);
         }
 
         public void bind(final DocumentSnapshot snapshot, final OnArmorSelectedListener listener)
@@ -81,6 +83,7 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
             protectionMeleeView.setText(armor.getProtectionMelee());
             protectionColdView.setText(armor.getProtectionCold());
             protectionRadiationView.setText(armor.getProtectionRadiation());
+            topLocationView.setText(armor.getTopLocation());
 
             itemView.setOnClickListener(new View.OnClickListener()
             {
