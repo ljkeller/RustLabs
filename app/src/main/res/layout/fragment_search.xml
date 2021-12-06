@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_layout"
@@ -8,17 +8,53 @@
     tools:context=".ui.search.SearchFragment">
 
     <TextView
-        android:id="@+id/text_search"
+        android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/app_name"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:textColor="@color/color_logo"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteSearch"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/text_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@color/primary_background"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="true"
+        android:paddingStart="8dp"
+        android:textColor="@color/primary_text"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/autoCompleteSearch"
+        android:layout_alignEnd="@+id/autoCompleteSearch"
+        android:layout_alignBottom="@+id/autoCompleteSearch"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/primary_background"
+        android:src="@android:drawable/ic_menu_search" />
+
+</RelativeLayout>

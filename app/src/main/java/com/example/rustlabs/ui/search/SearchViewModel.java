@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.rustlabs.R;
+
 public class SearchViewModel extends ViewModel
 {
 
@@ -12,7 +14,6 @@ public class SearchViewModel extends ViewModel
     public SearchViewModel()
     {
         mText = new MutableLiveData<>();
-        mText.setValue("This is the search fragment");
     }
 
     public LiveData<String> getText()
