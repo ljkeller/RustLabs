@@ -9,7 +9,7 @@ public class Structure
     public static final String FIELD_RAID_EXPLOSIVE_AMMO = "raidExplosiveAmmo";
 
     private String name;
-    private String photo;
+    private String picture;
 
     private int raidC4;
     private int raidRocket;
@@ -20,7 +20,7 @@ public class Structure
 
     public Structure() {}
 
-    public Structure(String name, int raidC4, int raidRocket, int raidSatchel, int raidExplosiveAmmo, int health, int numTips, String photo)
+    public Structure(String name, int raidC4, int raidRocket, int raidSatchel, int raidExplosiveAmmo, int health, int numTips, String picture)
     {
         this.name = name;
         this.raidC4 = raidC4;
@@ -29,7 +29,18 @@ public class Structure
         this.raidExplosiveAmmo = raidExplosiveAmmo;
         this.health = health;
         this.numTips = numTips;
-        this.photo = photo;
+        this.picture = picture;
+    }
+
+    public Structure(String name, String picture, int raidC4, int raidRocket, int raidSatchel, int raidExplosiveAmmo, int health)
+    {
+        this.name = name;
+        this.picture = picture;
+        this.raidC4 = raidC4;
+        this.raidRocket = raidRocket;
+        this.raidSatchel = raidSatchel;
+        this.raidExplosiveAmmo = raidExplosiveAmmo;
+        this.health = health;
     }
 
     public int getNumTips()
@@ -42,14 +53,14 @@ public class Structure
         this.numTips = numTips;
     }
 
-    public String getPhoto()
+    public String getPicture()
     {
-        return photo;
+        return picture;
     }
 
-    public void setPhoto(String photo)
+    public void setPicture(String picture)
     {
-        this.photo = photo;
+        this.picture = picture;
     }
 
     public String getName()

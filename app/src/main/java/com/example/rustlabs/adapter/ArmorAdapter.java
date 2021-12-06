@@ -22,7 +22,7 @@ public class ArmorAdapter extends FirestoreAdapter<ArmorAdapter.ViewHolder>
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        //TODO: Create weapon item XML
+        //TODO: Create armor item XML
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         return new ViewHolder(inflater.inflate(R.layout.armor, parent, false));
     }
