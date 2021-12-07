@@ -39,4 +39,6 @@
     <string name="const_ammo_type">Ammo Type:</string>
     <string name="const_damage">Damage:</string>
     <string name="const_top_location">Top Location:</string>
+    <string name="const_craft_cost">Craft Cost:</string>
+    <string name="sample_armor_craft_cost">5 Tarp, 2 Sewing Kits, 8 High Quality Metal</string>
 </resources>

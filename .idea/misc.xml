@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.4192708333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/layout/activity_armor_detail.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_firebase_auth.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_weapon_detail.xml" value="0.22" />
