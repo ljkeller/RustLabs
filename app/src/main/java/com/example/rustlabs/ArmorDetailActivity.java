@@ -157,7 +157,7 @@ public class ArmorDetailActivity extends AppCompatActivity implements View.OnCli
     {
         switch (v.getId())
         {
-            case R.id.weapon_button_back:
+            case R.id.armor_button_back:
                 onBackArrowClicked(v);
                 break;
             case R.id.show_tip_dialog:
