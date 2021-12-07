@@ -13,6 +13,9 @@
             android:name=".WeaponDetailActivity"
             android:exported="false" />
         <activity
+            android:name=".ArmorDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".FirebaseAuthActivity"
             android:exported="false" />
         <activity

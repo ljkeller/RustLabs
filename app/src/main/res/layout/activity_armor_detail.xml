@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/armor_top_card"
         android:layout_width="match_parent"
-        android:layout_height="336"
+        android:layout_height="336dp"
         android:background="@color/primary_background"
         android:elevation="4dp">
 
@@ -57,7 +57,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/text_layout"
             android:layout_width="232dp"
-            android:layout_height="272"
+            android:layout_height="272dp"
             android:layout_below="@+id/armor_name"
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
@@ -112,7 +112,7 @@
                 app:layout_constraintTop_toTopOf="@+id/const_ammo_type" />
 
             <TextView
-                android:id="@+id/weapon_damage_detail_view"
+                android:id="@+id/armor_top_location_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -123,7 +123,7 @@
                 app:layout_constraintTop_toTopOf="@+id/const_damage" />
 
             <TextView
-                android:id="@+id/weapon_top_location_detail"
+                android:id="@+id/armor_craft_cost_detail"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -236,8 +236,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/armor_top_card"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="-28dp"
         android:background="@color/primary_background"
         app:srcCompat="@android:drawable/ic_input_add" />

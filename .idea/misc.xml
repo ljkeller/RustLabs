@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.4192708333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.18385416666666668" />
-        <entry key="app/src/main/res/layout/activity_armor_detail.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_armor_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_firebase_auth.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_weapon_detail.xml" value="0.22" />
@@ -25,7 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2742971308523472" />
         <entry key="app/src/main/res/layout/fragment_structures.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/fragment_tip_dialog.xml" value="0.2857789855072464" />
-        <entry key="app/src/main/res/layout/fragment_weapons.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_weapons.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_tip.xml" value="0.4666666666666667" />
         <entry key="app/src/main/res/layout/structure.xml" value="0.3759057971014493" />
         <entry key="app/src/main/res/layout/weapon.xml" value="0.4329710144927536" />

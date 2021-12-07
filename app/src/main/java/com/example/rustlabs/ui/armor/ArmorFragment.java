@@ -190,8 +190,12 @@ public class ArmorFragment extends Fragment implements ArmorAdapter.OnArmorSelec
     @Override
     public void onArmorSelected(DocumentSnapshot armor)
     {
-        //TODO: Implement'
         Log.d(TAG, "onArmorSelected() called with: armor = [" + armor + "]");
+
+        if (mParentActivity != null)
+        {
+            mParentActivity.onArmorSelected(armor);
+        }
     }
 
     @Override

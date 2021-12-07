@@ -51,8 +51,9 @@ public class ArmorDetailActivity extends AppCompatActivity implements View.OnCli
     private TextView mProtectionColdView;
     private TextView mProtectionRadiationView;
 
-
     private TextView mTopLocationView;
+    private TextView mCraftCostView;
+
     private ViewGroup mEmptyView;
     private RecyclerView mTipRecycler;
 
@@ -71,22 +72,23 @@ public class ArmorDetailActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weapon_detail);
+        setContentView(R.layout.activity_armor_detail);
 
-        mImageView = findViewById(R.id.weapon_image);
-        mNameView = findViewById(R.id.weapon_name);
-        mNumTipsView = findViewById(R.id.weapon_num_tips);
+        mImageView = findViewById(R.id.armor_image);
+        mNameView = findViewById(R.id.armor_name);
+        mNumTipsView = findViewById(R.id.armor_num_tips);
 
         mProtectionProjectileView = findViewById(R.id.protection_projectile_detailed);
         mProtectionMeleeView = findViewById(R.id.protection_melee_detailed);
         mProtectionColdView = findViewById(R.id.protection_cold_detailed);
         mProtectionRadiationView = findViewById(R.id.protection_radiation_detailed);
 
-        mTopLocationView = findViewById(R.id.weapon_top_location_detail);
+        mCraftCostView = findViewById(R.id.armor_craft_cost_detail);
+        mTopLocationView = findViewById(R.id.armor_top_location_detail);
         mEmptyView = findViewById(R.id.view_empty_tips);
         mTipRecycler = findViewById(R.id.recycler_tips);
 
-        findViewById(R.id.weapon_button_back).setOnClickListener(this);
+        findViewById(R.id.armor_button_back).setOnClickListener(this);
         findViewById(R.id.show_tip_dialog).setOnClickListener(this);
 
         // Get armor ID from extras
@@ -210,11 +212,12 @@ public class ArmorDetailActivity extends AppCompatActivity implements View.OnCli
         mNameView.setText(armor.getName());
         mNumTipsView.setText(String.valueOf(armor.getNumTips()));
 
-        //TODO: update these views
-        mAmmoTypeView.setText(weapon.getAmmoType());
-        mDamageView.setText(String.valueOf(weapon.getDamage()));
+        mProtectionProjectileView.setText(String.valueOf(armor.getProtectionProjectile()));
+        mProtectionMeleeView.setText(String.valueOf(armor.getProtectionMelee()));
+        mProtectionColdView.setText(String.valueOf(armor.getProtectionCold()));
+        mProtectionRadiationView.setText(String.valueOf(armor.getProtectionRadiation()));
 
-
+        mCraftCostView.setText(armor.getCraftCost());
         mTopLocationView.setText(armor.getTopLocation());
 
         Glide.with(mImageView.getContext()).load(armor.getPicture()).into(mImageView);
