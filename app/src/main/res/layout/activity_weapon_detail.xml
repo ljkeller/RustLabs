@@ -136,7 +136,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/weapon_button_back"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_alignTop="@+id/weapon_name"
@@ -149,7 +149,7 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_show_tip_dialog"
+        android:id="@+id/show_tip_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/weapon_top_card"
