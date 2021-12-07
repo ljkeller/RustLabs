@@ -1,6 +1,7 @@
 package com.example.rustlabs.ui.weapons;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rustlabs.MainActivity;
 import com.example.rustlabs.R;
+import com.example.rustlabs.WeaponDetailActivity;
 import com.example.rustlabs.adapter.WeaponAdapter;
 import com.example.rustlabs.databinding.FragmentWeaponsBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -178,14 +180,16 @@ public class WeaponFragment extends Fragment implements WeaponAdapter.OnWeaponSe
     @Override
     public void onWeaponSelected(DocumentSnapshot weapon)
     {
-        //TODO: Implement'
         Log.d(TAG, "onWeaponSelected() called with: weapon = [" + weapon + "]");
+
+        // Pass logic to main activity as there are multiple ways to select weapon
+        mParentActivity.onWeaponSelected(weapon);
     }
 
     @Override
     public void onClick(View v)
     {
-        //TODO: implement
+        //TODO: implement filter on click + more?
         Log.d(TAG, "onClick() called with: v = [" + v + "]");
     }
 }

@@ -15,17 +15,19 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.rustlabs.adapter.WeaponAdapter;
 import com.example.rustlabs.databinding.ActivityMainBinding;
 import com.example.rustlabs.viewmodel.MainActivityViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements WeaponAdapter.OnWeaponSelectedListener
 {
     private static final int LIMIT = 50;
 
@@ -191,5 +193,15 @@ public class MainActivity extends AppCompatActivity
     public int getRecyclerViewLimit()
     {
         return LIMIT;
+    }
+
+
+    @Override
+    public void onWeaponSelected(DocumentSnapshot weapon)
+    {
+        Intent intent = new Intent (this, WeaponDetailActivity.class);
+        intent.putExtra(WeaponDetailActivity.KEY_WEAPON_ID, weapon.getId());
+
+        startActivity(intent);
     }
 }

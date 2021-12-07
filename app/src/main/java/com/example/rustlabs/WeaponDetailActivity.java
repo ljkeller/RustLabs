@@ -84,7 +84,7 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
 
         // Get weapon ID from extras
         String weaponId = getIntent().getExtras().getString(KEY_WEAPON_ID);
-        if (weaponId != null)
+        if (weaponId == null)
         {
             throw new IllegalArgumentException("Must pass extra " + KEY_WEAPON_ID);
         }

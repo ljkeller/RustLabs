@@ -23,7 +23,6 @@ public class TipAdapter extends FirestoreAdapter<TipAdapter.ViewHolder>
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        // TODO: Implement item tip layout
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tip,
                                                                                parent, false));
     }
@@ -39,6 +38,7 @@ public class TipAdapter extends FirestoreAdapter<TipAdapter.ViewHolder>
         //TODO: link views here.
         TextView nameView;
         TextView textView;
+        TextView dateView;
 
         public ViewHolder(View itemView)
         {
@@ -46,12 +46,14 @@ public class TipAdapter extends FirestoreAdapter<TipAdapter.ViewHolder>
             super(itemView);
             nameView = itemView.findViewById(R.id.tip_item_name);
             textView = itemView.findViewById(R.id.tip_item_text);
+            dateView = itemView.findViewById(R.id.tip_item_date);
         }
 
         public void bind(Tip tip)
         {
             nameView.setText(tip.getUserName());
             textView.setText(tip.getText());
+            dateView.setText(tip.getTimestamp().toString());
         }
     }
 }
