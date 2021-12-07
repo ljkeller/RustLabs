@@ -16,11 +16,6 @@ import android.widget.EditText;
 import com.example.rustlabs.model.Tip;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TipDialogFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TipDialogFragment extends DialogFragment implements View.OnClickListener
 {
     public static final String TAG = "TipDialog";

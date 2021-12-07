@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tip_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="16dp"
+    android:background="@color/primary_background"
     android:paddingLeft="16dp"
+    android:paddingTop="16dp"
     android:paddingRight="16dp">
 
     <TextView
@@ -16,6 +18,7 @@
         android:ellipsize="end"
         android:maxWidth="120dp"
         android:maxLines="1"
+        android:textColor="@color/link_text"
         android:textStyle="bold"
         tools:text="Joseph Smith" />
 
@@ -26,6 +29,7 @@
         android:layout_marginStart="24dp"
         android:layout_toEndOf="@+id/tip_item_name"
         android:layout_toRightOf="@id/tip_item_name"
+        android:textColor="@color/secondary_text"
         tools:text="12/01/2021" />
 
     <TextView
@@ -35,6 +39,7 @@
         android:layout_below="@+id/tip_item_date"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="4dp"
+        android:textColor="@color/primary_text"
         tools:text="If you use this item, you're the biggest noob in the game. Get good, kid" />
 
 </RelativeLayout>

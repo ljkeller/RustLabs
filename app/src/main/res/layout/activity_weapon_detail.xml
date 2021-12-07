@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeaponDetailActivity">
+    android:background="@color/primary_background"
+    tools:context="com.example.rustlabs.WeaponDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/weapon_top_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tertiary_background"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/weapon_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:alpha="1.0"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ar_foreground" />
+
+        <!-- Back button -->
+        <ImageView
+            android:id="@+id/weapon_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/weapon_name"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            app:srcCompat="" />
+
+        <TextView
+            android:id="@+id/weapon_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/restaurant_rating"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/link_text"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            tools:text="@string/sample_weapon_title" />
+
+        <TextView
+            android:id="@+id/weapon_num_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/weapon_tip"
+            android:layout_alignBottom="@+id/weapon_tip"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/restaurant_rating"
+            android:gravity="center"
+            android:textColor="@android:color/secondary_text_light"
+            tools:text="(10)" />
+
+        <TextView
+            android:id="@+id/restaurant_city_divider"
+            style="@style/AppTheme.TextDivider"
+            android:layout_alignTop="@+id/restaurant_category"
+            android:layout_toRightOf="@+id/restaurant_category"
+            android:text="@string/divider_bullet"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_show_tip_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/weapon_top_card"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="-28dp"
+        android:background="@color/primary_background"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <!-- Ratings -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weapon_top_card"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:paddingTop="28dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone"
+        tools:listitem="@layout/item_tip" />
+
+    <!-- View for empty ratings -->
+    <LinearLayout
+        android:id="@+id/view_empty_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weapon_top_card"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/primary_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@mipmap/logo_foreground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_no_tips"
+            android:textColor="@color/background_text" />
+
+    </LinearLayout>
+
+</RelativeLayout>

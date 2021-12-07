@@ -35,4 +35,5 @@
     <string name="hint_tip">What is your experience?</string>
     <string name="cancel">CANCEL</string>
     <string name="submit">SUBMIT</string>
+    <string name="message_no_tips">Be the first to leave a tip!</string>
 </resources>

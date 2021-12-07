@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/activity_firebase_auth.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2740628166160081" />
+        <entry key="app/src/main/res/layout/activity_weapon_detail.xml" value="0.2826086956521739" />
         <entry key="app/src/main/res/layout/armor.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_armor.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_base.xml" value="0.3375" />
@@ -38,5 +39,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2826086956521739" />
+      </ProjectState>
+    </option>
   </component>
 </project>
