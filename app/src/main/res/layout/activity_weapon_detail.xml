@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/weapon_top_card"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="232dp"
         android:background="@color/primary_background"
         android:elevation="4dp">
 
@@ -20,30 +20,22 @@
             android:id="@+id/weapon_image"
             android:layout_width="128dp"
             android:layout_height="128dp"
+            android:layout_alignTop="@+id/text_layout"
             android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
             android:alpha="1.0"
             android:background="@color/secondary_background"
             android:scaleType="centerCrop"
             tools:src="@mipmap/ar_foreground" />
 
-        <ImageView
-            android:id="@+id/weapon_button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/weapon_name"
-            android:layout_marginTop="16dp"
-            android:background="?attr/selectableItemBackground"
-            app:srcCompat="" />
-
         <TextView
             android:id="@+id/weapon_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:textColor="@color/link_text"
             android:textSize="28dp"
@@ -62,63 +54,97 @@
             android:textColor="@color/background_text"
             tools:text="(10)" />
 
-        <TextView
-            android:id="@+id/restaurant_city_divider"
-            style="@style/AppTheme.TextDivider"
-            android:layout_alignTop="@+id/restaurant_category"
-            android:layout_toRightOf="@+id/restaurant_category"
-            android:text="@string/divider_bullet"
-            android:textColor="@android:color/white" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/text_layout"
-            android:layout_width="198dp"
-            android:layout_height="131dp"
+            android:layout_width="224dp"
+            android:layout_height="162dp"
             android:layout_below="@+id/weapon_name"
             android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:background="@color/secondary_background">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/const_ammo_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
+                android:text="@string/const_ammo_type"
                 android:textColor="@color/primary_text"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/const_damage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/const_top_weapon_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
+                android:text="@string/const_top_location"
                 android:textColor="@color/primary_text"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/const_damage" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/const_damage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
+                android:text="@string/const_damage"
                 android:textColor="@color/primary_text"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/const_top_weapon_location"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/const_ammo_type" />
+
+            <TextView
+                android:id="@+id/ammo_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/sample_weapon_ammo_type"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/const_ammo_type"
+                app:layout_constraintTop_toTopOf="@+id/const_ammo_type" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/sample_weapon_damage"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/const_damage"
+                app:layout_constraintTop_toTopOf="@+id/const_damage" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/sample_weapon_top_location"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/const_top_weapon_location"
+                app:layout_constraintTop_toTopOf="@+id/const_top_weapon_location" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignTop="@+id/weapon_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/primary_background"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     </RelativeLayout>
 

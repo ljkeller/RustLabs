@@ -36,4 +36,7 @@
     <string name="cancel">CANCEL</string>
     <string name="submit">SUBMIT</string>
     <string name="message_no_tips">Be the first to leave a tip!</string>
+    <string name="const_ammo_type">Ammo Type:</string>
+    <string name="const_damage">Damage:</string>
+    <string name="const_top_location">Top Location:</string>
 </resources>
