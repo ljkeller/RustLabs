@@ -3,6 +3,7 @@ package com.example.rustlabs;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -29,6 +30,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.Transaction;
 
 import org.w3c.dom.Document;
 
@@ -66,6 +69,55 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon_detail);
+
+        mImageView = findViewById(R.id.weapon_image);
+        mNameView = findViewById(R.id.weapon_name);
+        mNumTipsView = findViewById(R.id.weapon_num_tips);
+        mAmmoTypeView = findViewById(R.id.ammo_type);
+        mDamageView = findViewById(R.id.weapon_damage_detail_view);
+        mTopLocationView = findViewById(R.id.weapon_top_location_detail);
+        mEmptyView = findViewById(R.id.view_empty_tips);
+        mTipRecycler = findViewById(R.id.recycler_tips);
+
+        findViewById(R.id.weapon_button_back).setOnClickListener(this);
+        findViewById(R.id.show_tip_dialog).setOnClickListener(this);
+
+        // Get weapon ID from extras
+        String weaponId = getIntent().getExtras().getString(KEY_WEAPON_ID);
+        if (weaponId != null)
+        {
+            throw new IllegalArgumentException("Must pass extra " + KEY_WEAPON_ID);
+        }
+
+        mFirestore = FirebaseFirestore.getInstance();
+
+        mWeaponRef = mFirestore.collection("weapons").document(weaponId);
+
+        // Get tips
+        Query tipQuery = mWeaponRef.collection("tips").orderBy("timestamp",
+                                                               Query.Direction.DESCENDING).limit(50);
+
+        mTipAdapter = new TipAdapter(tipQuery) {
+            @Override
+            protected void onDataChanged()
+            {
+                if (getItemCount() == 0)
+                {
+                    mTipRecycler.setVisibility(View.GONE);
+                    mEmptyView.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    mTipRecycler.setVisibility(View.VISIBLE);
+                    mEmptyView.setVisibility(View.GONE);
+                }
+            }
+        };
+
+        mTipRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mTipRecycler.setAdapter(mTipAdapter);
+
+        mTipDialog = new TipDialogFragment();
     }
 
     @Override
@@ -74,7 +126,7 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
         super.onStart();
 
         mTipAdapter.startListening();
-        mWeaponRegistration = mWeaponRef.addSnapshotListener(this)
+        mWeaponRegistration = mWeaponRef.addSnapshotListener(this);
     }
 
     @Override
@@ -106,17 +158,38 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private Task<Void> addTip(final DocumentReference tipRef, final Tip tip)
+    private Task<Void> addTip(final DocumentReference weaponRef, final Tip tip)
     {
-        // TODO: Implement
-        return null;
+        // Create reference for new weapon
+        final DocumentReference tipRef = weaponRef.collection("tips").document();
+
+        return mFirestore.runTransaction(new Transaction.Function<Void>()
+        {
+            @Nullable
+            @Override
+            public Void apply(@NonNull Transaction transaction) throws FirebaseFirestoreException
+            {
+                Weapon weapon = transaction.get(weaponRef).toObject(Weapon.class);
+
+                // Compute new num tips
+                int newNumTips = weapon.getNumTips() + 1;
+
+                // set weapon info
+                weapon.setNumTips(newNumTips);
+
+                // Commit to firestore
+                transaction.set(weaponRef, weapon);
+                transaction.set(tipRef, tip);
+
+                return null;
+            }
+        });
     }
 
     @Override
     public void onEvent(@Nullable DocumentSnapshot snapshot,
                         @Nullable FirebaseFirestoreException error)
     {
-        //TODO: Implement
         if (error != null)
         {
             Log.w(TAG, "onEvent: error", error);
