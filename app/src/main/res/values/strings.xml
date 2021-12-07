@@ -31,4 +31,8 @@
     <string name="sample_rocket_cost">4</string>
     <string name="sample_satchel_cost">12</string>
     <string name="sample_explosive_ammo_cost">200</string>
+    <string name="add_tip">Add tip</string>
+    <string name="hint_tip">What is your experience?</string>
+    <string name="cancel">CANCEL</string>
+    <string name="submit">SUBMIT</string>
 </resources>
