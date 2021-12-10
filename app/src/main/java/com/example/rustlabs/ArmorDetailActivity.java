@@ -257,7 +257,7 @@ public class ArmorDetailActivity extends AppCompatActivity implements View.OnCli
 
                 // Show failure message & scroll top
                 hideKeyboard();
-                Snackbar.make(findViewById(android.R.id.content), "Failed to add raiting",
+                Snackbar.make(findViewById(android.R.id.content), "Failed to add tip",
                               Snackbar.LENGTH_SHORT).show();
             }
         });

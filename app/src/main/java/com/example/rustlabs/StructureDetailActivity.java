@@ -1,13 +1,6 @@
 package com.example.rustlabs;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
-import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +9,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.rustlabs.adapter.TipAdapter;
+import com.example.rustlabs.model.Armor;
+import com.example.rustlabs.model.Structure;
 import com.example.rustlabs.model.Tip;
 import com.example.rustlabs.model.Weapon;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,23 +34,25 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.Transaction;
 
-import org.w3c.dom.Document;
-
-public class WeaponDetailActivity extends AppCompatActivity implements View.OnClickListener,
+public class StructureDetailActivity extends AppCompatActivity implements View.OnClickListener,
         EventListener<DocumentSnapshot>, TipDialogFragment.TipListener
 {
 
-    private static final String TAG = "WeaponDetailActivity";
+    private static final String TAG = "StructureDetailActivity";
 
-    public static final String KEY_WEAPON_ID = "key_weapon_id";
+    public static final String KEY_STRUCTURE_ID = "key_structure_id";
 
     // UI Members
     private ImageView mImageView;
     private TextView mNameView;
     private TextView mNumTipsView;
-    private TextView mAmmoTypeView;
-    private TextView mDamageView;
-    private TextView mTopLocationView;
+
+    private TextView mC4CostView;
+    private TextView mRocketCostView;
+    private TextView mExplosiveAmmoCostView;
+    private TextView mSatchelCostView;
+    private TextView mHealthView;
+
     private ViewGroup mEmptyView;
     private RecyclerView mTipRecycler;
 
@@ -58,8 +61,8 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
 
     // Firestore Members
     private FirebaseFirestore mFirestore;
-    private DocumentReference mWeaponRef;
-    private ListenerRegistration mWeaponRegistration;
+    private DocumentReference mStructureRef;
+    private ListenerRegistration mStructureRegistration;
 
     // Internal members
     private TipAdapter mTipAdapter;
@@ -68,34 +71,38 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weapon_detail);
+        setContentView(R.layout.activity_structure_detail);
 
-        mImageView = findViewById(R.id.weapon_image);
-        mNameView = findViewById(R.id.weapon_name);
-        mNumTipsView = findViewById(R.id.weapon_num_tips);
-        mAmmoTypeView = findViewById(R.id.ammo_type);
-        mDamageView = findViewById(R.id.weapon_damage_detail_view);
-        mTopLocationView = findViewById(R.id.weapon_top_location_detail);
+        mImageView = findViewById(R.id.structure_image);
+        mNameView = findViewById(R.id.structure_name);
+        mNumTipsView = findViewById(R.id.structure_num_tips);
+
+        mC4CostView = findViewById(R.id.c4_cost);
+        mRocketCostView = findViewById(R.id.rocket_cost);
+        mExplosiveAmmoCostView = findViewById(R.id.explosive_ammo_cost);
+        mSatchelCostView = findViewById(R.id.satchel_cost);
+        mHealthView = findViewById(R.id.structure_health);
+
         mEmptyView = findViewById(R.id.view_empty_tips);
         mTipRecycler = findViewById(R.id.recycler_tips);
 
-        findViewById(R.id.weapon_button_back).setOnClickListener(this);
+        findViewById(R.id.structure_button_back).setOnClickListener(this);
         findViewById(R.id.show_tip_dialog).setOnClickListener(this);
 
-        // Get weapon ID from extras
-        String weaponId = getIntent().getExtras().getString(KEY_WEAPON_ID);
-        if (weaponId == null)
+        // Get structure ID from extras
+        String structureId = getIntent().getExtras().getString(KEY_STRUCTURE_ID);
+        if (structureId == null)
         {
-            throw new IllegalArgumentException("Must pass extra " + KEY_WEAPON_ID);
+            throw new IllegalArgumentException("Must pass extra " + KEY_STRUCTURE_ID);
         }
 
         mFirestore = FirebaseFirestore.getInstance();
 
-        mWeaponRef = mFirestore.collection("weapons").document(weaponId);
+        mStructureRef = mFirestore.collection("structures").document(structureId);
 
         // Get tips
-        Query tipQuery = mWeaponRef.collection("tips").orderBy("timestamp",
-                                                               Query.Direction.DESCENDING).limit(50);
+        Query tipQuery = mStructureRef.collection("tips").orderBy("timestamp",
+                                                              Query.Direction.DESCENDING).limit(50);
 
         mTipAdapter = new TipAdapter(tipQuery) {
             @Override
@@ -126,7 +133,7 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
         super.onStart();
 
         mTipAdapter.startListening();
-        mWeaponRegistration = mWeaponRef.addSnapshotListener(this);
+        mStructureRegistration = mStructureRef.addSnapshotListener(this);
     }
 
     @Override
@@ -136,20 +143,19 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
 
         mTipAdapter.stopListening();
 
-        if (mWeaponRegistration != null)
+        if (mStructureRegistration != null)
         {
-            mWeaponRegistration.remove();
-            mWeaponRegistration = null;
+            mStructureRegistration.remove();
+            mStructureRegistration = null;
         }
     }
 
     @Override
     public void onClick(View v)
     {
-        // TODO: SWITCH
         switch (v.getId())
         {
-            case R.id.weapon_button_back:
+            case R.id.structure_button_back:
                 onBackArrowClicked(v);
                 break;
             case R.id.show_tip_dialog:
@@ -158,10 +164,10 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private Task<Void> addTip(final DocumentReference weaponRef, final Tip tip)
+    private Task<Void> addTip(final DocumentReference structureRef, final Tip tip)
     {
         // Create reference for new weapon
-        final DocumentReference tipRef = weaponRef.collection("tips").document();
+        final DocumentReference tipRef = structureRef.collection("tips").document();
 
         return mFirestore.runTransaction(new Transaction.Function<Void>()
         {
@@ -169,16 +175,16 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
             @Override
             public Void apply(@NonNull Transaction transaction) throws FirebaseFirestoreException
             {
-                Weapon weapon = transaction.get(weaponRef).toObject(Weapon.class);
+                Structure structure = transaction.get(structureRef).toObject(Structure.class);
 
                 // Compute new num tips
-                int newNumTips = weapon.getNumTips() + 1;
+                int newNumTips = structure.getNumTips() + 1;
 
                 // set weapon info
-                weapon.setNumTips(newNumTips);
+                structure.setNumTips(newNumTips);
 
                 // Commit to firestore
-                transaction.set(weaponRef, weapon);
+                transaction.set(structureRef, structure);
                 transaction.set(tipRef, tip);
 
                 return null;
@@ -196,18 +202,21 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
-        onWeaponLoaded(snapshot.toObject(Weapon.class));
+        onStructureLoaded(snapshot.toObject(Structure.class));
     }
 
-    private void onWeaponLoaded(Weapon weapon)
+    private void onStructureLoaded(Structure structure)
     {
-        mNameView.setText(weapon.getName());
-        mNumTipsView.setText(String.valueOf(weapon.getNumTips()));
-        mAmmoTypeView.setText(weapon.getAmmoType());
-        mDamageView.setText(String.valueOf(weapon.getDamage()));
-        mTopLocationView.setText(weapon.getTopLocation());
+        mNameView.setText(structure.getName());
+        mNumTipsView.setText(String.valueOf(structure.getNumTips()));
 
-        Glide.with(mImageView.getContext()).load(weapon.getPicture()).into(mImageView);
+        mC4CostView.setText(String.valueOf(structure.getRaidC4()));
+        mRocketCostView.setText(String.valueOf(structure.getRaidRocket()));
+        mExplosiveAmmoCostView.setText(String.valueOf(structure.getRaidExplosiveAmmo()));
+        mSatchelCostView.setText(String.valueOf(structure.getRaidSatchel()));
+        mHealthView.setText(String.valueOf(structure.getHealth()));
+
+        Glide.with(mImageView.getContext()).load(structure.getPicture()).into(mImageView);
     }
 
     public void onBackArrowClicked(View view)
@@ -224,7 +233,7 @@ public class WeaponDetailActivity extends AppCompatActivity implements View.OnCl
     public void onTip(Tip tip)
     {
         // Must add rating and update count
-        addTip(mWeaponRef, tip).addOnSuccessListener(this, new OnSuccessListener<Void>()
+        addTip(mStructureRef, tip).addOnSuccessListener(this, new OnSuccessListener<Void>()
         {
             @Override
             public void onSuccess(Void unused)

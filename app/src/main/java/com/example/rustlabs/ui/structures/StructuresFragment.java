@@ -175,8 +175,12 @@ public class StructuresFragment extends Fragment implements StructureAdapter.OnS
     @Override
     public void onStructureSelected(DocumentSnapshot structure)
     {
-        //TODO: Implement'
         Log.d(TAG, "onStructureSelected() called with: armor = [" + structure + "]");
+
+        if (mParentActivity != null)
+        {
+            mParentActivity.onStructureSelected(structure);
+        }
     }
 
     @Override

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RustLabs">
         <activity
+            android:name=".StructureDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeaponDetailActivity"
             android:exported="false" />
         <activity

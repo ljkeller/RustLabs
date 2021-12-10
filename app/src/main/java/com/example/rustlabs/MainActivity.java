@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.rustlabs.adapter.ArmorAdapter;
+import com.example.rustlabs.adapter.StructureAdapter;
 import com.example.rustlabs.adapter.WeaponAdapter;
 import com.example.rustlabs.databinding.ActivityMainBinding;
 import com.example.rustlabs.viewmodel.MainActivityViewModel;
@@ -28,7 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class MainActivity extends AppCompatActivity implements WeaponAdapter.OnWeaponSelectedListener, ArmorAdapter.OnArmorSelectedListener
+public class MainActivity extends AppCompatActivity implements WeaponAdapter.OnWeaponSelectedListener, ArmorAdapter.OnArmorSelectedListener, StructureAdapter.OnStructureSelectedListener
 {
     private static final int LIMIT = 50;
 
@@ -211,6 +212,15 @@ public class MainActivity extends AppCompatActivity implements WeaponAdapter.OnW
     {
         Intent intent = new Intent(this, ArmorDetailActivity.class);
         intent.putExtra(ArmorDetailActivity.KEY_ARMOR_ID, armor.getId());
+
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStructureSelected(DocumentSnapshot structure)
+    {
+        Intent intent = new Intent(this, StructureDetailActivity.class);
+        intent.putExtra(StructureDetailActivity.KEY_STRUCTURE_ID, structure.getId());
 
         startActivity(intent);
     }
